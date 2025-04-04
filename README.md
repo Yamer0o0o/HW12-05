@@ -104,6 +104,8 @@ GROUP BY
     c.customer_id, c.last_name, c.first_name;
 ```
 
+<img src = "img/img3.png" width = 100%>
+
 ### Ключевые улучшения
 
 1. Замена **DATE()** на диапазон дат - позволяет использовать индекс по **payment_date**
