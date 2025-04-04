@@ -67,23 +67,7 @@ WHERE
  AND i.inventory_id = r.inventory_id;
 ```
 
--> Table scan on <temporary>  (cost=2.5..2.5 rows=0) (actual time=4628..4628 rows=391 loops=1)
-    -> Temporary table with deduplication  (cost=0..0 rows=0) (actual time=4628..4628 rows=391 loops=1)
-        -> Window aggregate with buffering: sum(payment.amount) OVER (PARTITION BY c.customer_id,f.title )   (actual time=2309..4468 rows=642000 loops=1)
-            -> Sort: c.customer_id, f.title  (actual time=2309..2368 rows=642000 loops=1)
-                -> Stream results  (cost=21.6e+6 rows=15.4e+6) (actual time=30.4..1782 rows=642000 loops=1)
-                    -> Nested loop inner join  (cost=21.6e+6 rows=15.4e+6) (actual time=30.4..1539 rows=642000 loops=1)
-                        -> Nested loop inner join  (cost=20e+6 rows=15.4e+6) (actual time=25.9..1386 rows=642000 loops=1)
-                            -> Nested loop inner join  (cost=18.5e+6 rows=15.4e+6) (actual time=21.6..1207 rows=642000 loops=1)
-                                -> Inner hash join (no condition)  (cost=1.54e+6 rows=15.4e+6) (actual time=15.8..76.8 rows=634000 loops=1)
-                                    -> Filter: (cast(p.payment_date as date) = '2005-07-30')  (cost=1.83 rows=15400) (actual time=7.59..26.5 rows=634 loops=1)
-                                        -> Table scan on p  (cost=1.83 rows=15400) (actual time=7.11..24.4 rows=16044 loops=1)
-                                    -> Hash
-                                        -> Covering index scan on f using idx_title  (cost=112 rows=1000) (actual time=7.65..8.09 rows=1000 loops=1)
-                                -> Covering index lookup on r using rental_date (rental_date=p.payment_date)  (cost=1 rows=1) (actual time=0.00113..0.00167 rows=1.01 loops=634000)
-                            -> Single-row index lookup on c using PRIMARY (customer_id=r.customer_id)  (cost=0.001 rows=1) (actual time=156e-6..173e-6 rows=1 loops=642000)
-                        -> Single-row covering index lookup on i using PRIMARY (inventory_id=r.inventory_id)  (cost=0.001 rows=1) (actual time=121e-6..139e-6 rows=1 loops=642000)
-
+<img src = "img/img2.png" width = 100%>
 
 ## Дополнительные задания (со звёздочкой*)
 
