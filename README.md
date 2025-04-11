@@ -19,7 +19,7 @@ WHERE
  table_schema = 'sakila';
 ```
 
-<img src = "img/img1.png" width = 80%>
+![img](img/img1.png)
 
 Этот запрос:
 
@@ -67,7 +67,7 @@ WHERE
  AND i.inventory_id = r.inventory_id;
 ```
 
-<img src = "img/img2.png" width = 100%>
+![img](img/img2.png)
 
 ### Узкие места в исходном запросе
 
@@ -104,7 +104,7 @@ GROUP BY
     c.customer_id, c.last_name, c.first_name;
 ```
 
-<img src = "img/img3.png" width = 100%>
+![img](img/img3.png)
 
 ### Ключевые улучшения
 
